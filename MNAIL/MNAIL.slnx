@@ -1,0 +1,7 @@
+<Solution>
+  <Project Path="MNAIL.Api/MNAIL.Api.csproj" />
+  <Project Path="MNAIL.Application/MNAIL.Application.csproj" />
+  <Project Path="MNAIL.Core/MNAIL.Core.csproj" />
+  <Project Path="MNAIL.Domain/MNAIL.Domain.csproj" />
+  <Project Path="MNAIL.Infrastructure/MNAIL.Infrastructure.csproj" />
+</Solution>

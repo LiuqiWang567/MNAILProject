@@ -1,0 +1,19 @@
+# 系统文件
+.DS_Store
+Thumbs.db
+
+# Node.js 依赖
+node_modules/
+package-lock.json
+
+# .NET 项目生成文件
+bin/
+obj/
+.vs/
+*.suo
+*.user
+
+# IDE 配置
+.vscode/
+.idea/
+*.swp
