@@ -4,7 +4,7 @@ using MNAIL.Domain.Entities;
 namespace MNAIL.Infrastructure.Data;
 
 //cd D:\Projects\MNAIL\MNAIL.Infrastructure
-//dotnet ef migrations add Addservice --startup-project ../MNAIL.Api
+//dotnet ef migrations add change2026年6月9日10:31:59 --startup-project ../MNAIL.Api
 //dotnet ef database update --startup - project.. / MNAIL.Api
 public class AppDbContext : DbContext
 {

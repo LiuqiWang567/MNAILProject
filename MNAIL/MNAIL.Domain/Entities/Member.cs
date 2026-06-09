@@ -13,5 +13,7 @@ public class Member
     public string? Level { get; set; } // 会员等级：普通/银卡/金卡/钻石
     public string? Remark { get; set; }
     public bool IsEnabled { get; set; } = true;
+
+    public string? Avatar { get; set; }//头像
     public DateTime CreateTime { get; set; } = DateTime.Now;
 }

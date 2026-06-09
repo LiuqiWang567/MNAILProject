@@ -7,8 +7,10 @@ namespace MNAIL.Domain.Entities
     public class ServiceItem
     {
         public int Id { get; set; }
+
+        public required string ShopId { get; set; }
         // 项目名称（如：纯色美甲、延长甲、睫毛嫁接）
-        public string Name { get; set; } = "";
+        public string ItemName { get; set; } = "";
         // 分类（美甲/美睫/手足护理/其他）
         public string Category { get; set; } = "";
         // 单价

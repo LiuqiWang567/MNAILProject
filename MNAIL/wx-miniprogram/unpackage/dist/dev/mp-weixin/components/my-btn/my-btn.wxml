@@ -1,0 +1,1 @@
+<view class="{{['my-btn', 'data-v-3be7e9b5', a]}}" bindtap="{{b}}"><slot/></view>

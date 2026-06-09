@@ -8,10 +8,27 @@ using MNAIL.Application.Services;
 using MNAIL.Domain.Interfaces;
 using MNAIL.Infrastructure.Data;
 using MNAIL.Infrastructure.Repositories;
+using System.Data;
 using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
-
+// 1. 添加跨域服务
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowFrontend", policy =>
+    {
+        // 允许所有本地开发地址，避免端口变化导致请求失败
+        policy.WithOrigins(
+                "http://localhost:43884",
+                "http://127.0.0.1:43884",
+                "http://localhost:8080",
+                "http://127.0.0.1:8080"
+            )
+              .AllowAnyHeader()
+              .AllowAnyMethod()
+              .AllowCredentials(); // 允许携带 Cookie/Token（微信小程序需要）
+    });
+});
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 // 2. Swagger + JWT 授权
@@ -42,6 +59,11 @@ builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseSqlServer(
         builder.Configuration.GetConnectionString("Default"),
         b => b.MigrationsAssembly("MNAIL.Infrastructure") // 关键：指定迁移文件生成到 Infrastructure 项目
+    ));
+// 2. 注册 Dapper IDbConnection（和 EF 共用同一个连接串）
+builder.Services.AddScoped<IDbConnection>(sp =>
+    new Microsoft.Data.SqlClient.SqlConnection(
+        builder.Configuration.GetConnectionString("Default")
     ));
 // 注入服务
 builder.Services.AddScoped<ICustomerService, CustomerService>();
@@ -104,6 +126,7 @@ if (app.Environment.IsDevelopment())
 }
 app.UseMiddleware<GlobalExceptionMiddleware>();
 app.UseHttpsRedirection();
+app.UseCors("AllowFrontend");
 app.UseAuthentication(); // 必须在 Authorization 前面
 app.UseAuthorization();
 app.MapControllers();

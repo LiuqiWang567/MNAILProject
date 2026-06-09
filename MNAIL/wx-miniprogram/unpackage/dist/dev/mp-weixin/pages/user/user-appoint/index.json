@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "预约",
+  "usingComponents": {
+    "custom-tabbar": "../../../components/custom-tabbar/index"
+  }
+}

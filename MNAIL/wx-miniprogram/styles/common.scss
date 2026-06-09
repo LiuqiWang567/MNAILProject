@@ -1,0 +1,22 @@
+/* 主题色 */
+$primary: #FF5E93;
+$gray: #F5F5F5;
+$text: #333;
+
+/* 通用样式 */
+.container {
+  padding: 20rpx;
+}
+.btn {
+  background: $primary;
+  color: #fff;
+  border-radius: 10rpx;
+  height: 88rpx;
+  line-height: 88rpx;
+  text-align: center;
+}
+.card {
+  background: #fff;
+  border-radius: 16rpx;
+  padding: 20rpx;
+}

@@ -1,0 +1,1 @@
+<view class="my-input-wrap data-v-1889191f"><input class="my-input data-v-1889191f" placeholder="{{a}}" password="{{b}}" bindinput="{{c}}" value="{{d}}"/></view>

@@ -22,7 +22,7 @@ public class CustomerService : ICustomerService
         return new CustomerDto
         {
             Id = customer.Id,
-            Name = customer.Name,
+            Name = customer.NickName,
             Phone = customer.Phone,
             LastServiceDate = customer.LastServiceDate
         };
@@ -34,7 +34,7 @@ public class CustomerService : ICustomerService
         return customers.Select(c => new CustomerDto
         {
             Id = c.Id,
-            Name = c.Name,
+            Name = c.NickName,
             Phone = c.Phone,
             LastServiceDate = c.LastServiceDate
         }).ToList();
@@ -44,8 +44,10 @@ public class CustomerService : ICustomerService
     {
         var customer = new Customer
         {
-            Name = dto.Name,
+            NickName = dto.Name,
+            OpenId=dto.OpenId,
             Phone = dto.Phone
+            
         };
         await _repository.AddAsync(customer);
     }
@@ -56,7 +58,7 @@ public class CustomerService : ICustomerService
         if (customer == null)
             throw new KeyNotFoundException("顾客不存在");
 
-        customer.Name = dto.Name;
+        customer.NickName = dto.Name;
         customer.Phone = dto.Phone;
         customer.LastServiceDate = dto.LastServiceDate;
 

@@ -1,0 +1,150 @@
+// 1. 全局颜色变量（适配美甲店温柔风格）
+$primary: #FF5E93; // 统一主色，替换掉原来的 #ff6b00
+
+$primary-color: #FF5E93; // 统一主色，替换掉原来的 #ff6b00
+$primary-dark: #E84A7F;  // 加深主色，用于按钮点击态
+$primary-light: #FFE8F0; // 浅主色，用于背景高亮
+
+$bg-white: #ffffff;
+$bg-light: #fafafa;
+$gray-bg: #F5F5F5;
+$text-main: #333333;
+$text-secondary: #666666;
+$border-color: #E8E8E8;
+$border-focus: #FF5E93; // 聚焦边框色
+
+// 2. 全局字体、重置样式
+page {
+  background-color: $gray-bg;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+  color: $text-main;
+}
+
+// 通用圆角按钮样式
+.btn {
+  background: $primary-color;
+  color: #fff;
+  border-radius: 12rpx;
+  height: 88rpx;
+  line-height: 88rpx;
+  text-align: center;
+  font-size: 30rpx;
+  font-weight: 500;
+  border: none;
+  transition: all 0.2s;
+  
+  &:active {
+    background-color: $primary-dark;
+    transform: scale(0.98);
+  }
+
+  &.submit-btn {
+    width: 100%;
+    margin-top: 40rpx;
+  }
+}
+
+// 通用卡片样式
+.card {
+  background-color: $bg-white;
+  border-radius: 16rpx;
+  padding: 24rpx;
+  margin: 20rpx;
+  box-shadow: 0 2rpx 12rpx rgba(0, 0, 0, 0.05);
+}
+
+/* 通用表单样式 - 标签与输入框同行 */
+.form {
+  background: $bg-white;
+  border-radius: 16rpx;
+  padding: 32rpx 24rpx;
+  margin: 20rpx;
+  box-shadow: 0 2rpx 12rpx rgba(0, 0, 0, 0.05);
+
+  .form-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 32rpx;
+
+    // 最后一项去掉 margin-bottom
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    .label {
+      width: 160rpx; // 加宽一点，避免文字折行
+      flex-shrink: 0;
+      font-size: 28rpx;
+      color: $text-main;
+      font-weight: 500;
+      margin-right: 20rpx;
+      // 标签右对齐，视觉更整齐
+      text-align: right;
+    }
+
+    // 让 picker 也参与 flex 布局
+    picker {
+      flex: 1;
+      width: 100%;
+    }
+
+    // picker-value / input 统一样式
+    .picker-value,
+    .input {
+      width: 100%;
+      height: 88rpx;
+      border: 1rpx solid $border-color;
+      border-radius: 12rpx;
+      padding: 0 20rpx;
+      font-size: 28rpx;
+      color: $text-main;
+      box-sizing: border-box;
+      background: #fff;
+      display: flex;
+      align-items: center;
+      transition: border-color 0.2s;
+
+      &::placeholder {
+        color: $text-secondary;
+      }
+
+      &:focus {
+        border-color: $border-focus;
+      }
+
+      // 给 picker-value 加个下拉箭头
+      &.picker-value::after {
+        content: '';
+        width: 12rpx;
+        height: 12rpx;
+        border-right: 2rpx solid $text-secondary;
+        border-bottom: 2rpx solid $text-secondary;
+        transform: rotate(45deg);
+        margin-left: auto;
+      }
+    }
+
+    // textarea 单独高度
+    .textarea {
+      flex: 1;
+      width: 100%;
+      height: 140rpx;
+      border: 1rpx solid $border-color;
+      border-radius: 12rpx;
+      padding: 20rpx;
+      font-size: 28rpx;
+      color: $text-main;
+      box-sizing: border-box;
+      background: #fff;
+      transition: border-color 0.2s;
+
+      &::placeholder {
+        color: $text-secondary;
+      }
+
+      &:focus {
+        border-color: $border-focus;
+      }
+    }
+  }
+}

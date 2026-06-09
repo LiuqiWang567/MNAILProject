@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using MNAIL.Application.DTOs;
+using MNAIL.Application.DTOs.Staff;
 using MNAIL.Application.Interfaces;
 using MNAIL.Application.Services;
 using MNAIL.Core.Models;
@@ -20,10 +21,10 @@ public class StaffController : ControllerBase
 
     [HttpPost("login")]
     [AllowAnonymous]
-    public async Task<ActionResult<ApiResponse<string>>> Login(LoginDto dto)
+    public async Task<ActionResult<LoginRquestDto>> Login(LoginDto dto)
     {
-        var token = await _service.LoginAsync(dto);
-        return ApiResponse<string>.SuccessResult(token);
+        var loginRquestDto = await _service.LoginAsync(dto);
+        return Ok(loginRquestDto);
     }
 
     [HttpPost("register")]

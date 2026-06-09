@@ -1,0 +1,1 @@
+<view class="tabbar data-v-52454e90"><view wx:for="{{a}}" wx:for-item="item" wx:key="d" class="tabbar-item data-v-52454e90" bindtap="{{item.e}}"><image class="tabbar-icon data-v-52454e90" src="{{item.a}}"></image><text class="{{['tabbar-text', 'data-v-52454e90', item.c && 'active']}}">{{item.b}}</text></view></view>

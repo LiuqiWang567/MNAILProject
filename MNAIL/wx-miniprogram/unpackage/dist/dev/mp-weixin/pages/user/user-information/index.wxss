@@ -1,0 +1,106 @@
+
+.container.data-v-20a07ddc {
+  padding: 20rpx;
+  background-color: #f5f5f5;
+  min-height: 100vh;
+}
+
+/* 个人信息卡片 */
+.user-card.data-v-20a07ddc {
+  background: #fff;
+  border-radius: 20rpx;
+  padding: 40rpx;
+  margin-bottom: 30rpx;
+}
+
+/* 头像 */
+.avatar-box.data-v-20a07ddc {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 40rpx;
+}
+.avatar.data-v-20a07ddc {
+  width: 160rpx;
+  height: 160rpx;
+  border-radius: 50%;
+  border: 4rpx solid #eee;
+}
+.edit-tip.data-v-20a07ddc {
+  font-size: 24rpx;
+  color: #999;
+  margin-top: 10rpx;
+}
+
+/* 行项目 */
+.item-row.data-v-20a07ddc {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30rpx 0;
+  border-bottom: 1rpx solid #f0f0f0;
+}
+.item-row.data-v-20a07ddc:last-child {
+  border-bottom: none;
+}
+.label.data-v-20a07ddc {
+  font-size: 30rpx;
+  color: #333;
+  font-weight: 500;
+}
+.value.data-v-20a07ddc {
+  font-size: 30rpx;
+  color: #666;
+}
+
+/* 等级标签 */
+.level-tag.data-v-20a07ddc {
+  padding: 8rpx 20rpx;
+  border-radius: 30rpx;
+  font-size: 26rpx;
+  color: #fff;
+}
+.level-1.data-v-20a07ddc { background-color: #95a5a6;
+}
+.level-2.data-v-20a07ddc { background-color: #3498db;
+}
+.level-3.data-v-20a07ddc { background-color: #2ecc71;
+}
+.level-4.data-v-20a07ddc { background-color: #f39c12;
+}
+.level-5.data-v-20a07ddc { background-color: #e74c3c;
+}
+
+/* 余额卡片 */
+.balance-card.data-v-20a07ddc {
+  background: linear-gradient(135deg, #ff6b6b, #ff3a3a);
+  color: #fff;
+  border-radius: 20rpx;
+  padding: 40rpx;
+  text-align: center;
+  margin-bottom: 40rpx;
+}
+.balance-title.data-v-20a07ddc {
+  font-size: 28rpx;
+  opacity: 0.9;
+}
+.balance-num.data-v-20a07ddc {
+  font-size: 60rpx;
+  font-weight: bold;
+  margin: 20rpx 0;
+}
+.balance-tip.data-v-20a07ddc {
+  font-size: 24rpx;
+  opacity: 0.8;
+}
+
+/* 按钮 */
+.btn-box.data-v-20a07ddc {
+  padding: 20rpx 0;
+}
+.edit-btn.data-v-20a07ddc {
+  background-color: #ff6b6b;
+  color: #fff;
+  border-radius: 50rpx;
+  font-size: 32rpx;
+}

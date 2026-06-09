@@ -1,0 +1,56 @@
+{
+  "easycom": {
+    "autoscan": true,
+    "custom": {
+      "^my-(.*)": "@/components/my-$1/my-$1.vue"
+    }
+  },
+  "pages": [
+    { "path": "pages/login/index", "style": { "navigationBarTitleText": "登录" } },
+    { "path": "pages/user/user-index/index", "style": { "navigationBarTitleText": "首页" } },
+    { "path": "pages/user/user-my/index", "style": { "navigationBarTitleText": "我的" } },
+    { "path": "pages/user/user-appoint/index", "style": { "navigationBarTitleText": "预约" } },
+	{ "path": "pages/user/user-appointrecord/index", "style": { "navigationBarTitleText": "预约记录" } },
+	
+    { "path": "pages/user/user-works/index", "style": { "navigationBarTitleText": "预约" } },
+	{ "path": "pages/user/user-workdetail/index", "style": { "navigationBarTitleText": "作品详情" } },
+	 { "path": "pages/user/user-information/index", "style": { "navigationBarTitleText": "预约" } },
+	 
+	{ "path": "pages/staff/staff-index/index", "style": { "navigationBarTitleText": "工作台" } },
+    { "path": "pages/staff/staff-my/index", "style": { "navigationBarTitleText": "我的" } },
+    { "path": "pages/staff/staff-works/index", "style": { "navigationBarTitleText": "款式上传" } },
+    { "path": "pages/staff/staff-order/index", "style": { "navigationBarTitleText": "订单" } },
+	 { "path": "pages/staff/staff-member/index", "style": { "navigationBarTitleText": "会员管理" } },
+	  { "path": "pages/staff/staff-manage/index", "style": { "navigationBarTitleText": "员工管理" } },
+     { "path": "pages/staff/staff-information/index", "style": { "navigationBarTitleText": "我的信息" } },
+	{ "path": "pages/service/index", "style": { "navigationBarTitleText": "服务项目" } },
+    { "path": "pages/order/index", "style": { "navigationBarTitleText": "订单" } },
+	{
+		"path": "pages/mine/index",
+		"style": {
+			"navigationBarTitleText": "我的"
+		}
+	}
+  ],
+  "globalStyle": {
+     "backgroundTextStyle": "light",
+     "navigationBarBackgroundColor": "#ffffff",
+     "navigationBarTitleText": "XX美甲店",
+     "navigationBarTextStyle": "black",
+     "usingComponents": {}
+   },
+     "lazyCodeLoading": "requiredComponents"
+,
+"tabBar": {
+  "custom": true,
+  "list": [
+    { "pagePath": "pages/staff/staff-index/index" },
+    { "pagePath": "pages/staff/staff-order/index" },
+    { "pagePath": "pages/staff/staff-my/index" },
+    { "pagePath": "pages/user/user-index/index" },
+    { "pagePath": "pages/user/user-works/index" },
+    { "pagePath": "pages/user/user-my/index" }
+  ]
+},
+  "uniIdRouter": {}
+}

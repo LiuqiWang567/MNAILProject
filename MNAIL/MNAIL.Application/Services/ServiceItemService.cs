@@ -30,7 +30,8 @@ public class ServiceItemService : IServiceItemService
 
         var item = new ServiceItem
         {
-            Name = dto.Name,
+            ItemName = dto.Name,
+            ShopId = dto.ShopId,
             Category = dto.Category,
             Price = dto.Price,
             Duration = dto.Duration,
@@ -48,7 +49,7 @@ public class ServiceItemService : IServiceItemService
         if (await _repo.ExistsByNameAsync(dto.Name, id))
             throw new Exception("项目名称已存在");
 
-        item.Name = dto.Name;
+        item.ItemName = dto.Name;
         item.Category = dto.Category;
         item.Price = dto.Price;
         item.Duration = dto.Duration;

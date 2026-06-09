@@ -1,5 +1,7 @@
 ﻿using Microsoft.Extensions.Configuration;
+using Microsoft.IdentityModel.Tokens;
 using MNAIL.Application.DTOs;
+using MNAIL.Application.DTOs.Staff;
 using MNAIL.Application.Interfaces;
 using MNAIL.Core.Exceptions;
 using MNAIL.Core.Helpers;
@@ -8,7 +10,6 @@ using MNAIL.Domain.Interfaces;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
-using Microsoft.IdentityModel.Tokens;
 
 namespace MNAIL.Application.Services;
 
@@ -31,6 +32,7 @@ public class StaffService : IStaffService
         var staff = new Staff
         {
             Username = dto.Username,
+            ShopId = dto.ShopId,
             Name = dto.Name,
            Password = PasswordHelper.Hash(password), // 哈希
           
@@ -40,7 +42,7 @@ public class StaffService : IStaffService
         await _repo.AddAsync(staff);
     }
 
-    public async Task<string> LoginAsync(LoginDto dto)
+    public async Task<LoginRquestDto> LoginAsync(LoginDto dto)
     {
         var staff = await _repo.GetByUsernameAsync(dto.Username);
         if (staff == null)
@@ -60,15 +62,23 @@ public class StaffService : IStaffService
         var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_config["Jwt:SecretKey"]!));
         var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
 
-        var token = new JwtSecurityToken(
+        var stoken = new JwtSecurityToken(
             issuer: _config["Jwt:Issuer"],
             audience: _config["Jwt:Audience"],
             claims: claims,
             expires: DateTime.Now.AddMinutes(Convert.ToDouble(_config["Jwt:ExpiresMinutes"])),
             signingCredentials: creds
         );
+       
+       var sstoken= new JwtSecurityTokenHandler().WriteToken(stoken);
+        var loginreques = new LoginRquestDto();
 
-        return new JwtSecurityTokenHandler().WriteToken(token);
+        loginreques.Username = staff.Username;
+        loginreques.isAdmin = staff.IsAdmin;
+        loginreques.token = sstoken;
+
+        
+        return loginreques;
     }
 
     public async Task<List<Staff>> GetAllAsync()

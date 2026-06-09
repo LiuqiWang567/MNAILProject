@@ -1,0 +1,57 @@
+{
+  "pages": [
+    "pages/login/index",
+    "pages/user/user-index/index",
+    "pages/user/user-my/index",
+    "pages/user/user-appoint/index",
+    "pages/user/user-appointrecord/index",
+    "pages/user/user-works/index",
+    "pages/user/user-workdetail/index",
+    "pages/user/user-information/index",
+    "pages/staff/staff-index/index",
+    "pages/staff/staff-my/index",
+    "pages/staff/staff-works/index",
+    "pages/staff/staff-order/index",
+    "pages/staff/staff-member/index",
+    "pages/staff/staff-manage/index",
+    "pages/staff/staff-information/index",
+    "pages/service/index",
+    "pages/order/index",
+    "pages/mine/index"
+  ],
+  "usingComponents": {},
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#ffffff",
+    "navigationBarTitleText": "XX美甲店",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "custom": true,
+    "list": [
+      {
+        "pagePath": "pages/staff/staff-index/index"
+      },
+      {
+        "pagePath": "pages/staff/staff-order/index"
+      },
+      {
+        "pagePath": "pages/staff/staff-my/index"
+      },
+      {
+        "pagePath": "pages/user/user-index/index"
+      },
+      {
+        "pagePath": "pages/user/user-works/index"
+      },
+      {
+        "pagePath": "pages/user/user-my/index"
+      }
+    ]
+  },
+  "permission": {
+    "scope.userLocation": {
+      "desc": "演示定位能力"
+    }
+  }
+}

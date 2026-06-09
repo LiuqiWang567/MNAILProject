@@ -1,0 +1,155 @@
+
+/* 最外层布局 */
+.container.data-v-f0761571 {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background-color: #f7f7f7;
+}
+
+/* 筛选栏固定顶部 */
+.filter-box.data-v-f0761571 {
+  display: flex;
+  background: #fff;
+  border-radius: 12rpx;
+  padding: 24rpx;
+  margin: 20rpx;
+  margin-bottom: 20rpx;
+}
+.filter-item.data-v-f0761571 {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.filter-item.data-v-f0761571:first-child {
+  border-right: 1rpx solid #eee;
+}
+.label.data-v-f0761571 {
+  font-size: 26rpx;
+  color: #333;
+  margin-right: 10rpx;
+}
+.val.data-v-f0761571 {
+  font-size: 26rpx;
+  color: #666;
+  margin-right: 8rpx;
+}
+
+/* 滚动列表容器 */
+.list-container.data-v-f0761571 {
+  flex: 1;
+  overflow: hidden;
+  padding: 0 20rpx;
+}
+.list-box.data-v-f0761571 {
+  padding-bottom: 40rpx;
+}
+
+/* 列表项样式 */
+.record-item.data-v-f0761571 {
+  background: #fff;
+  border-radius: 12rpx;
+  padding: 28rpx;
+  margin-bottom: 20rpx;
+}
+.item-top.data-v-f0761571 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16rpx;
+}
+.type-tag.data-v-f0761571 {
+  background: #fef0f0;
+  color: #f56c6c;
+  font-size: 24rpx;
+  padding: 6rpx 16rpx;
+  border-radius: 20rpx;
+}
+.date.data-v-f0761571 {
+  font-size: 24rpx;
+  color: #999;
+}
+.row.data-v-f0761571 {
+  display: flex;
+  align-items: center;
+  margin: 10rpx 0;
+}
+.name.data-v-f0761571, .time.data-v-f0761571 {
+  font-size: 28rpx;
+  color: #333;
+}
+.price.data-v-f0761571 {
+  font-size: 30rpx;
+  color: #e64340;
+  font-weight: bold;
+  flex: 1;
+}
+.status.data-v-f0761571 {
+  font-size: 26rpx;
+}
+.wait.data-v-f0761571 {
+  color: #e6a23c;
+}
+.finish.data-v-f0761571 {
+  color: #67c23a;
+}
+.cancel.data-v-f0761571 {
+  color: #999;
+}
+
+/* 空数据 */
+.empty.data-v-f0761571 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 120rpx;
+}
+.empty-img.data-v-f0761571 {
+  width: 160rpx;
+  height: 160rpx;
+}
+.empty-txt.data-v-f0761571 {
+  font-size: 26rpx;
+  color: #999;
+  margin-top: 20rpx;
+}
+
+/* 底部弹窗 */
+.popup-content.data-v-f0761571 {
+  background: #fff;
+  border-radius: 20rpx 20rpx 0 0;
+  padding: 30rpx;
+}
+.popup-title.data-v-f0761571 {
+  text-align: center;
+  font-size: 30rpx;
+  color: #333;
+  margin-bottom: 30rpx;
+}
+.type-list.data-v-f0761571 {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20rpx;
+}
+.type-item.data-v-f0761571 {
+  width: calc(50% - 10rpx);
+  text-align: center;
+  line-height: 80rpx;
+  font-size: 28rpx;
+  border: 1rpx solid #eee;
+  border-radius: 8rpx;
+}
+.type-item.active.data-v-f0761571 {
+  background: #f56c6c;
+  color: #fff;
+  border-color: #f56c6c;
+}
+.cancel-btn.data-v-f0761571 {
+  text-align: center;
+  line-height: 80rpx;
+  font-size: 30rpx;
+  color: #666;
+  margin-top: 30rpx;
+  border-top: 1rpx solid #eee;
+}

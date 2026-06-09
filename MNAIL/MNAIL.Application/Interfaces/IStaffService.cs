@@ -1,11 +1,12 @@
 ﻿using MNAIL.Application.DTOs;
+using MNAIL.Application.DTOs.Staff;
 using MNAIL.Domain.Entities;
 
 namespace MNAIL.Application.Interfaces;
 
 public interface IStaffService
 {
-    Task<string> LoginAsync(LoginDto dto);
+    Task<LoginRquestDto> LoginAsync(LoginDto dto);
     Task RegisterAsync(StaffDto dto, string password);
 
     Task<List<Staff>> GetAllAsync();

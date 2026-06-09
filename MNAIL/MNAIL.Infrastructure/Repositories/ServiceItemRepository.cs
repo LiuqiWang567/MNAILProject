@@ -1,15 +1,21 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Dapper;
+using Microsoft.EntityFrameworkCore;
 using MNAIL.Domain.Entities;
-using MNAIL.Domain.Interfaces;
 using MNAIL.Infrastructure.Data;
+using System.Data;
 
 namespace MNAIL.Infrastructure.Repositories;
 
 public class ServiceItemRepository : IServiceItemRepository
 {
     private readonly AppDbContext _db;
-    public ServiceItemRepository(AppDbContext db) => _db = db;
-
+    private readonly IDbConnection _dbConnection;
+    // 同时注入 EF Context 和 Dapper 连接
+    public ServiceItemRepository(AppDbContext db, IDbConnection dbConnection)
+    {
+        _db = db;
+        _dbConnection = dbConnection;
+    }
     public async Task<List<ServiceItem>> GetAllAsync(bool? isEnabled = null)
     {
         var query = _db.ServiceItems.AsQueryable();
@@ -21,6 +27,11 @@ public class ServiceItemRepository : IServiceItemRepository
     public async Task<ServiceItem?> GetByIdAsync(int id)
     {
         return await _db.ServiceItems.FindAsync(id);
+    }
+
+    public async Task<ServiceItem?> GetByShopIdAsync(string ShopId)
+    {
+        return await _db.ServiceItems.FindAsync(ShopId);
     }
 
     public async Task AddAsync(ServiceItem item)
@@ -43,9 +54,24 @@ public class ServiceItemRepository : IServiceItemRepository
 
     public async Task<bool> ExistsByNameAsync(string name, int? excludeId = null)
     {
-        var query = _db.ServiceItems.Where(x => x.Name == name);
+        var query = _db.ServiceItems.Where(x => x.ItemName == name);
         if (excludeId.HasValue)
             query = query.Where(x => x.Id != excludeId.Value);
         return await query.AnyAsync();
+    }
+
+    public async Task UpdateSericeItemAsync(ServiceItem item)
+    {
+        var sql = @"UPDATE ServiceItems 
+                SET 
+                    ItemName = @ItemName,
+                    Price = @Price,
+                    Duration = @Duration,
+IsEnabled = @IsEnabled, 
+                    Remark = @Remark      
+                WHERE Id = @Id";
+
+        // Dapper 自动映射 item 对象的属性到 SQL 参数
+        await _dbConnection.ExecuteAsync(sql, item);
     }
 }
